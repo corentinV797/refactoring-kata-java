@@ -1,8 +1,10 @@
 package com.sipios.refactoring.controller;
 
+import java.util.Arrays;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.TimeZone;
+import java.util.stream.Collectors;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -54,10 +56,8 @@ public class ShoppingController {
 
     public double calculatePrice(Body b, boolean isSeasonalDiscount) {
         double discount = b.getCustomer().getDiscount();
-        double price = 0;
-        for (Item it : b.getItems()) {
-            price += it.getArticle().getPrice() * it.getNb() * (1 - (isSeasonalDiscount ? 1 : 0) * it.getArticle().getSeasonalDiscount()) * discount;
-        }
-        return price;
+        return Arrays.stream(b.getItems())
+            .mapToDouble(item -> item.getArticle().getPrice() * item.getNb() * (1 - (isSeasonalDiscount ? 1 : 0) * item.getArticle().getSeasonalDiscount()) * discount)
+            .sum();
     }
 }
