@@ -32,124 +32,124 @@ class ShoppingControllerTests extends UnitTest {
     }*/
 
     @Test
-    void testStandardCustomer() {
+    void should_checkStandardCustomerNoArticle() {
         Assertions.assertEquals("0.0",
             controller.getPrice(new Body(new Item[] {}, new StandardCustomer()))
         );
     }
 
     @Test
-    void testPremiumCustomer() {
+    void should_checkPremiumCustomerNoArticle() {
         Assertions.assertEquals("0.0",
             controller.getPrice(new Body(new Item[] {}, new PremiumCustomer()))
         );
     }
 
     @Test
-    void testPlatiniumCustomer() {
+    void should_checkPlatiniumCustomerArticle() {
         Assertions.assertEquals("0.0",
             controller.getPrice(new Body(new Item[] {}, new PlatiniumCustomer()))
         );
     }
 
     @Test
-    void testStandardCustomerTeeShirt() {
+    void should_checkStandardCustomerTeeShirt() {
         Assertions.assertEquals("30.0",
             controller.getPrice(new Body(new Item[] {new Item(new TshirtArticle(), 1)}, new StandardCustomer()))
         );
     }
 
     @Test
-    void testStandardCustomerDress() {
+    void should_checkStandardCustomerDress() {
         Assertions.assertEquals("50.0",
             controller.getPrice(new Body(new Item[] {new Item(new DressArticle(), 1)}, new StandardCustomer()))
         );
     }
 
     @Test
-    void testStandardCustomerJacket() {
+    void should_checkStandardCustomerJacket() {
         Assertions.assertEquals("100.0",
             controller.getPrice(new Body(new Item[] {new Item(new JacketArticle(), 1)}, new StandardCustomer()))
         );
     }
 
     @Test
-    void testStandardCustomerALotOfProducts() {
+    void should_checkStandardCustomerALotOfProducts() {
         Assertions.assertEquals("180.0",
             controller.getPrice(new Body(new Item[] {new Item (new TshirtArticle(), 1), new Item(new DressArticle(), 1), new Item(new JacketArticle(), 1)}, new StandardCustomer()))
         );
     }
 
     @Test
-    void testCalculatePriceStandardCustomerTshirtNotSeasonal() {
+    void should_checkCalculatePriceStandardCustomerTshirtNotSeasonal() {
         Assertions.assertEquals(30, controller.calculatePrice(new Body(new Item[] {new Item(new TshirtArticle(), 1)}, new StandardCustomer()), false));
     }
     @Test
-    void testCalculatePriceStandardCustomerTshirtSeasonal() {
+    void should_checkCalculatePriceStandardCustomerTshirtSeasonal() {
         Assertions.assertEquals(30, controller.calculatePrice(new Body(new Item[] {new Item(new TshirtArticle(), 1)}, new StandardCustomer()), true));
     }
     @Test
-    void testCalculatePricePremiumCustomerTshirtNotSeasonal() {
+    void should_checkCalculatePricePremiumCustomerTshirtNotSeasonal() {
         Assertions.assertEquals(27, controller.calculatePrice(new Body(new Item[] {new Item(new TshirtArticle(), 1)}, new PremiumCustomer()), false));
     }
     @Test
-    void testCalculatePricePremiumCustomerTshirtSeasonal() {
+    void should_checkCalculatePricePremiumCustomerTshirtSeasonal() {
         Assertions.assertEquals(27, controller.calculatePrice(new Body(new Item[] {new Item(new TshirtArticle(), 1)}, new PremiumCustomer()), true));
     }
     @Test
-    void testCalculatePricePlatiniumCustomerTshirtNotSeasonal() {
+    void should_checkCalculatePricePlatiniumCustomerTshirtNotSeasonal() {
         Assertions.assertEquals(15, controller.calculatePrice(new Body(new Item[] {new Item(new TshirtArticle(), 1)}, new PlatiniumCustomer()), false));
     }
     @Test
-    void testCalculatePricePlatiniumCustomerTshirtSeasonal() {
+    void should_checkCalculatePricePlatiniumCustomerTshirtSeasonal() {
         Assertions.assertEquals(15, controller.calculatePrice(new Body(new Item[] {new Item(new TshirtArticle(), 1)}, new PlatiniumCustomer()), true));
     }
     @Test
-    void testCalculatePriceStandardCustomerJacketNotSeasonal() {
+    void should_checkCalculatePriceStandardCustomerJacketNotSeasonal() {
         Assertions.assertEquals(100, controller.calculatePrice(new Body(new Item[] {new Item(new JacketArticle(), 1)}, new StandardCustomer()), false));
     }
     @Test
-    void testCalculatePriceStandardCustomerJacketSeasonal() {
+    void should_checkCalculatePriceStandardCustomerJacketSeasonal() {
         Assertions.assertEquals(90, controller.calculatePrice(new Body(new Item[] {new Item(new JacketArticle(), 1)}, new StandardCustomer()), true));
     }
     @Test
-    void testCalculatePricePremiumCustomerJacketNotSeasonal() {
+    void should_checkCalculatePricePremiumCustomerJacketNotSeasonal() {
         Assertions.assertEquals(90, controller.calculatePrice(new Body(new Item[] {new Item(new JacketArticle(), 1)}, new PremiumCustomer()), false));
     }
     @Test
-    void testCalculatePricePremiumCustomerJacketSeasonal() {
+    void should_checkCalculatePricePremiumCustomerJacketSeasonal() {
         Assertions.assertEquals(81, controller.calculatePrice(new Body(new Item[] {new Item(new JacketArticle(), 1)}, new PremiumCustomer()), true));
     }
     @Test
-    void testCalculatePricePlatiniumCustomerJacketNotSeasonal() {
+    void should_checkCalculatePricePlatiniumCustomerJacketNotSeasonal() {
         Assertions.assertEquals(50, controller.calculatePrice(new Body(new Item[] {new Item(new JacketArticle(), 1)}, new PlatiniumCustomer()), false));
     }
     @Test
-    void testCalculatePricePlatiniumCustomerJacketSeasonal() {
+    void should_checkCalculatePricePlatiniumCustomerJacketSeasonal() {
         Assertions.assertEquals(45, controller.calculatePrice(new Body(new Item[] {new Item(new JacketArticle(), 1)}, new PlatiniumCustomer()), true));
     }
     @Test
-    void testCalculatePriceStandardCustomerDressNotSeasonal() {
+    void should_checkCalculatePriceStandardCustomerDressNotSeasonal() {
         Assertions.assertEquals(50, controller.calculatePrice(new Body(new Item[] {new Item(new DressArticle(), 1)}, new StandardCustomer()), false));
     }
     @Test
-    void testCalculatePriceStandardCustomerDressSeasonal() {
+    void should_checkCalculatePriceStandardCustomerDressSeasonal() {
         Assertions.assertEquals(40, controller.calculatePrice(new Body(new Item[] {new Item(new DressArticle(), 1)}, new StandardCustomer()), true));
     }
     @Test
-    void testCalculatePricePremiumCustomerDressNotSeasonal() {
+    void should_checkCalculatePricePremiumCustomerDressNotSeasonal() {
         Assertions.assertEquals(45, controller.calculatePrice(new Body(new Item[] {new Item(new DressArticle(), 1)}, new PremiumCustomer()), false));
     }
     @Test
-    void testCalculatePricePremiumCustomerDressSeasonal() {
+    void should_checkCalculatePricePremiumCustomerDressSeasonal() {
         Assertions.assertEquals(36, controller.calculatePrice(new Body(new Item[] {new Item(new DressArticle(), 1)}, new PremiumCustomer()), true));
     }
     @Test
-    void testCalculatePricePlatiniumCustomerDressNotSeasonal() {
+    void should_checkCalculatePricePlatiniumCustomerDressNotSeasonal() {
         Assertions.assertEquals(25, controller.calculatePrice(new Body(new Item[] {new Item(new DressArticle(), 1)}, new PlatiniumCustomer()), false));
     }
     @Test
-    void testCalculatePricePlatiniumCustomerDressSeasonal() {
+    void should_checkCalculatePricePlatiniumCustomerDressSeasonal() {
         Assertions.assertEquals(20, controller.calculatePrice(new Body(new Item[] {new Item(new DressArticle(), 1)}, new PlatiniumCustomer()), true));
     }
 }
