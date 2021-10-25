@@ -56,7 +56,7 @@ public class ShoppingController {
         double discount = b.getCustomer().getDiscount();
         double price = 0;
         for (Item it : b.getItems()) {
-            price += it.getArticle().getPrice() * it.getNb() * (1 - (isSeasonalDiscount ? 1 : 0) * it.getArticle().getSeasonal_discount()) * discount;
+            price += it.getArticle().getPrice() * it.getNb() * (1 - (isSeasonalDiscount ? 1 : 0) * it.getArticle().getSeasonalDiscount()) * discount;
         }
         return price;
     }

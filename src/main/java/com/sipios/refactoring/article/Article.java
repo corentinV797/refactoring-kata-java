@@ -1,16 +1,16 @@
 package com.sipios.refactoring.article;
 
 public abstract class Article {
-    double seasonal_discount;
+    double seasonalDiscount;
     double price;
 
-    public Article(double seasonal_discount, double price) {
-        this.seasonal_discount = seasonal_discount;
+    Article(double seasonalDiscount, double price) {
+        this.seasonalDiscount = seasonalDiscount;
         this.price = price;
     }
 
-    public double getSeasonal_discount() {
-        return seasonal_discount;
+    public double getSeasonalDiscount() {
+        return seasonalDiscount;
     }
 
     public double getPrice() {
